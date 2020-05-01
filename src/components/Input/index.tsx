@@ -43,6 +43,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
     <Container isFilled={isFilled} isFocused={isFocus}>
       {Icon && <Icon size={20} />}
       <input
+        autoComplete="nope"
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         defaultValue={defaultValue}
