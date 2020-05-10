@@ -4,6 +4,7 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 import logoImg from '../../assets/logo.svg';
 
 import Input from '../../components/Input';
@@ -11,7 +12,7 @@ import Button from '../../components/Button';
 
 import getValidationErros from '../../utils/getValidationErrors';
 
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimationContainer, Background } from './styles';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -41,27 +42,29 @@ const SignUp: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <img src={logoImg} alt="logo" />
+        <AnimationContainer>
+          <img src={logoImg} alt="logo" />
 
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu Cadastro</h1>
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Faça seu Cadastro</h1>
 
-          <Input name="name" icon={FiUser} placeholder="Nome" />
-          <Input name="email" icon={FiMail} placeholder="E-mail" />
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Senha"
-          />
+            <Input name="name" icon={FiUser} placeholder="Nome" />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha"
+            />
 
-          <Button type="submit">Cadastraar</Button>
-        </Form>
+            <Button type="submit">Cadastraar</Button>
+          </Form>
 
-        <a href="CreateUser">
-          <FiArrowLeft />
-          Voltar para Logon
-        </a>
+          <Link to="/">
+            <FiArrowLeft />
+            Voltar para Logon
+          </Link>
+        </AnimationContainer>
       </Content>
     </Container>
   );
